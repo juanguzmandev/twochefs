@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2020 a las 16:20:57
--- Versión del servidor: 10.1.38-MariaDB
--- Versión de PHP: 7.3.2
+-- Tiempo de generación: 24-10-2021 a las 18:07:42
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,54 +18,48 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: 'twochefs'
+-- Base de datos: `twochefs`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla 'pedidos'
+-- Estructura de tabla para la tabla `pedidos`
 --
 
-CREATE TABLE 'pedidos' (
-  'nombre' text,
-  'apellido' text NOT NULL,
-  'telefono' text,
-  'correo' text NOT NULL,
-  'direccion' text,
-  'captura' text NOT NULL,
-  'referencia' int(11) NOT NULL,
-  'fecha' date NOT NULL,
-  'pedido' text,
-  'total' text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla 'pedidos'
---
-
-INSERT INTO 'pedidos' ('nombre', 'apellido', 'telefono', 'correo', 'direccion', 'captura', 'referencia', 'fecha', 'pedido', 'total') VALUES
+CREATE TABLE `pedidos` (
+  `nombre` text DEFAULT NULL,
+  `apellido` text NOT NULL,
+  `telefono` text DEFAULT NULL,
+  `correo` text NOT NULL,
+  `direccion` text NOT NULL,
+  `captura` text NOT NULL,
+  `referencia` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `pedido` text DEFAULT NULL,
+  `total` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla 'productos'
+-- Estructura de tabla para la tabla `productos`
 --
 
-CREATE TABLE 'productos' (
-  'nombre' text,
-  'link' text,
-  'precio' text,
-  'descripcion' text,
-  'categoria' text,
-  'disponible' tinyint(1) DEFAULT NULL
+CREATE TABLE `productos` (
+  `nombre` text DEFAULT NULL,
+  `link` text DEFAULT NULL,
+  `precio` text DEFAULT NULL,
+  `descripcion` text DEFAULT NULL,
+  `categoria` text DEFAULT NULL,
+  `disponible` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla 'productos'
+-- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO 'productos' ('nombre', 'link', 'precio', 'descripcion', 'categoria', 'disponible') VALUES
+INSERT INTO `productos` (`nombre`, `link`, `precio`, `descripcion`, `categoria`, `disponible`) VALUES
 ('Hamburguesa 1/4 Libra', 'comida11.jpg', '5', 'Pepinos, Tomate, Lechuga, Doble carne, mostaza', 'comidas', 1),
 ('Papas Fritas', 'comida12.jpg', '2', 'Papas fritas', 'comidas', 1),
 ('Arepa de carne mechada', 'comida10.jpg', '2', 'Queso, aguacate, carne mechada', 'comidas', 1),
