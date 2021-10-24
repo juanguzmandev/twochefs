@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Checkout - TwoChef's</title>
+	<!-- JS, Popper.js, and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+	<script src="https://kit.fontawesome.com/7b31fa78fb.js" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+	<link rel="stylesheet" href="../assets/css/home/index.css">
+	
+</head>
+<body>
+	<div class="modal" tabindex="-1" role="dialog" id="bankModal">
+  		<div class="modal-dialog" role="document">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<h5 class="modal-title">Bancos</h5>
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          				<span aria-hidden="true">&times;</span>
+        			</button>
+      			</div>
+      		<div class="modal-body">
+      			
+    			<h4>Pago móvil
+    				<small>0134</small>
+    				<small>04128770646</small>
+    				<small>V.- 15678462</small>
+            
+                <h4>
+                    <small>0105</small>
+    				<small>04249207903</small>
+    				<small>V.- 16478934</small>
+                    </h4>    
+    			</h4>
+
+    			<h4>BANESCO
+    				<small>Two Chefs E G C A</small>
+    				<small>01340196941961021954</small>
+    				<small>J.- 410293853</small>
+    				<small>Corriente</small>
+    			</h4>
+
+    			
+      		</div>
+  				<div class="modal-footer">
+        			<button type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+      			</div>
+    		</div>
+  		</div>
+	</div>
+	<div class="modal" tabindex="-1" role="dialog" id="orderModal">
+  		<div class="modal-dialog" role="document">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<h5 class="modal-title">Orden</h5>
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          				<span aria-hidden="true">&times;</span>
+        			</button>
+      			</div>
+      		<div class="modal-body">
+    			<p id="orderAlert"></p>
+      		</div>
+  				<div class="modal-footer">
+        			<button type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+      			</div>
+    		</div>
+  		</div>
+	</div>
+	<header class="d-flex flex-row shadow-sm">
+		<div class="w-25 m-2">
+			<img src="../assets/images/logo/logo.png" alt="logo" class="w-25" onclick="location.href='../';">
+		</div>
+		<div class="w-75 d-flex justify-content-end">
+			<a href="shop">
+				<i class="fas fa-shopping-cart mt-4 mr-4"></i>
+			</a>
+		</div>
+	</header>
+	<section class="container mt-4">
+		<div class="container d-flex justify-content-start">
+			<h2 class="text-secondary">Checkout</h2>
+		</div>
+	</section>
+	<section class="mt-4 d-flex flex-row mb-4">
+		<div class="d-flex flex-column m-4 w-50">
+			<div class="d-flex justify-content-center mb-4">
+				<h4>Orden</h4>
+			</div>
+			<div class="d-flex justify-content-center mt-4">
+				<table class="table">
+					<thead>
+						<tr>
+      						<th scope="col">Nombre</th>
+      						<th scope="col"></th>
+      						<th scope="col">Precio</th>
+    					</tr>
+					</thead>
+					<tbody id="tableBody">
+						<tr>
+							<td>Coca-cola (350ml)</td>
+							<td></td>
+							<td>2$</td>
+						</tr>
+						<tr>
+							<td>Papas Fritas</td>
+							<td></td>
+							<td>2$</td>
+						</tr>
+						<tr>
+							<th>Total</th>
+							<td></td>
+							<td class="text-success font-weight-bold">4$</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+			<div class="d-flex flex-column justify-content-center m-4 w-50">
+				<div class="d-flex justify-content-center">
+					<h4>Datos</h4>	
+				</div>
+				<div class="d-flex justify-content-center">
+					<form action="">
+						<div class="row m-4"> <!-- Nombre y apellido -->
+    						<div class="col">
+    							<label for="nombre" class="font-weight-bold">Nombre</label>
+      							<input type="text" class="form-control" placeholder="Ramon" name="nombre" pattern="(/^[A-Za-z]+$/)">
+    						</div>
+    						<div class="col">
+    							<label for="apellido" class="font-weight-bold">Apellido</label>
+      							<input type="text" class="form-control" placeholder="Solorzano" name="apellido" required pattern="(/^[A-Za-z]+$/)">
+    						</div>
+  						</div>
+  						<div class="row m-4"> <!-- Nro de tlf y correo -->
+    						<div class="col">
+    							<label for="numero" class="font-weight-bold">Número de teléfono</label>
+      							<input type="text" class="form-control" placeholder="04141234567" name="telefono" required pattern="(/^[A-Za-z]+$/)">
+    						</div>
+  						</div>
+  						<div class="row m-4"> <!-- Direccion -->
+    						<div class="col">
+    							<label for="direccion" class="font-weight-bold">Dirección exacta</label>
+      							<input type="text" class="form-control" placeholder="" name="direccion" required pattern="(/^[A-Za-z]+$/)">
+    						</div>
+  						</div>
+  						<div class="row m-4"> <!-- Comprobante de pago y numero de ref -->
+	    						<div class="col">
+      							<label for="myfile" class="font-weight-bold">Captura del pago</label>
+								<input type="file" id="myfile" class="form-control" name="captura" required>
+    						</div>
+    						<div class="col">
+    							<label for="referencia" class="font-weight-bold">Número de referencia</label>
+      							<input type="number" class="form-control" placeholder="00000000" name="referencia" required>	
+    						</div>
+  						</div>
+					</form>
+				</div>
+				<div class="d-flex justify-content-left ml-4">
+					<span class="text-success text-left font-weight-bold ml-4 mb-4"></span>
+				</div>
+				<div class="d-flex justify-content-center mt-4">
+					<button class="btn btn-success" onclick="processData();">Encargar</button>	
+				</div>
+			</div>
+	</section>
+	<section class="container mt-2 mb-4 d-flex justify-content-start">
+		<a href="" class="text-success font-weight-bold" data-toggle="modal" data-target="#bankModal">Ver datos bancarios</a>
+	</section>
+	<footer class="footer pt-4 mt-4">
+		<div class="container d-flex justify-content-center flex-direction-row">
+			<div class="p-2">
+				<a href="https://www.facebook.com/twochefs2/">
+					<i class="fab fa-facebook"></i>	
+				</a>
+			</div>
+			<div class="p-2">
+				<a href="https://www.twitter.com/twochefs2/">
+					<i class="fab fa-twitter"></i>	
+				</a>
+			</div>
+			<div class="p-2">
+				<a href="https://www.instagram.com/twochefs2/">
+					<i class="fab fa-instagram"></i>
+				</a>
+			</div>
+			<div class="p-2">
+				<a href="https://api.whatsapp.com/send?phone=584249207903">
+					<i class="fab fa-whatsapp"></i>
+				</a>
+			</div>
+		</div>
+	</footer>
+	<script src="../assets/js/checkout/loadOrder.js"></script>	
+</body>
+</html>
