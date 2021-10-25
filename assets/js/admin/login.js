@@ -1,6 +1,18 @@
 
 const makeRequest = (login) => {
-	
+
+	axios.post('../assets/php/admin/login.php', login)
+		.then(function (response) {
+    		// handle success
+    		console.log(response);
+  		})
+  		.catch(function (error) {
+    		// handle error
+    		console.log(error);
+  		})
+  		.then(function () {
+			// always executed
+  		});
 };
 
 function validate (...args) {
@@ -9,15 +21,12 @@ function validate (...args) {
 
 	args.map(arg => {
 
-		if(arg.value == '') {
+		if(arg.value != '') validated = true;
 
-			alert('Campo '+arg.key+' vacío');
-			validated = true;
-
-		} 
+		 
 	});
 
-	return validated;
+	return validated ? true : alert('Campo '+arg.key+' vacío');
 };
 
 const getCredentials = () => {
@@ -30,7 +39,7 @@ const getCredentials = () => {
 		{key: 'contraseña', value: pw}
 	);
 
-	return validation ? {user: user, pw: pw} : false;
+	return validation ? {user: user, pw: pw} : validation();
 };
 
 const login = () => {
