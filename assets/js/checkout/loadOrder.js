@@ -1,8 +1,5 @@
 let setInDatabase = (formData, cart, total) => {
-
-	/*console.log(formData);
-	console.log(cart);
-	console.log(total);*/
+	
 	formData.pedido = cart;
 	formData.total = total;
 
@@ -32,7 +29,6 @@ let getDataFromForm = () => {
 	var name = document.getElementsByName('nombre')[0].value;
 	var lastName = document.getElementsByName('apellido')[0].value;
 	var phone = document.getElementsByName('telefono')[0].value;
-	var email = document.getElementsByName('correo')[0].value;
 	var address = document.getElementsByName('direccion')[0].value;
 	var capture = document.getElementsByName('captura')[0].value;
 	var reference = document.getElementsByName('referencia')[0].value;
@@ -41,7 +37,6 @@ let getDataFromForm = () => {
 		nombre: name,
 		apellido: lastName,
 		telefono: phone,
-		email: email,
 		direccion: address,
 		captura: capture,
 		referencia: reference
