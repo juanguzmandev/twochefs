@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2021 a las 18:07:42
+-- Tiempo de generación: 27-10-2021 a las 00:48:02
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.12
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `twochefs`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `admins`
+--
+
+CREATE TABLE `admins` (
+  `usuario` text NOT NULL,
+  `password` text NOT NULL,
+  `nombre` text NOT NULL,
+  `email` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `admins`
+--
+
+INSERT INTO `admins` (`usuario`, `password`, `nombre`, `email`) VALUES
+('admin', '1234', 'Juan Guzman', 'guzmanjuan3011@gmail.com');
 
 -- --------------------------------------------------------
 

@@ -4,7 +4,7 @@ const makeRequest = (login) => {
 	axios.post('../assets/php/admin/login.php', login)
 		.then(function (response) {
     		// handle success
-    		console.log(response);
+    		response.data == 'OK' ? location.href = 'home' : alert('Datos incorrectos');
   		})
   		.catch(function (error) {
     		// handle error
