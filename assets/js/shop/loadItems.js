@@ -35,6 +35,12 @@ let setTotal = (price) => {
 
 	cartTotal = cartTotal + parseInt(price);
 	cartTotalElement.innerHTML = cartTotal + '$';
+
+	// Set products quantity
+
+	var cartTotalQuantityElement = document.getElementById('productsCounter');
+
+	cartTotalQuantityElement.innerHTML = parseInt(cartTotalQuantityElement.innerHTML) + 1;
 };
 
 let registerOnMemory = (name, price, category) => {
@@ -80,7 +86,6 @@ let loadCategoryItems = (category) => {
 	axios.get('../assets/php/shop/loadItems.php?cat='+category)
 	.then((response) => {
 
-		console.log(response.data);
 		setHtmlCategoryItems(category, response.data);
 	});
 };

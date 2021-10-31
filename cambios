@@ -1,7 +1,5 @@
 1. Llevar un contador de los productos escogidos (que sea por nuneros, y no deba agregar dos veces el mismo producto. Es decir, que si quiero pedir 2 raciones de papas, ahí mismo pueda escoger cuantas raciones quiero)
 
-2. Validar los campos de texto ( solo acepte letras) y los de nuneros para que solo registren numeros
-
 4. Que valide los campos vacíos, que si falta algo por llenar lo requiera para completar la orden
 
 5.que haya una opción de métodos de pago, que al seleccionar ya sea pago móvil, trasnferencia, divi sa, efectivo, valide cada opción por separado( que si seleciono pago móvil solo me arroje los datos de pago móvil y así)
