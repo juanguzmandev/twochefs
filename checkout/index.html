@@ -20,6 +20,33 @@
 	
 </head>
 <body>
+	<div class="modal" tabindex="-1" role="dialog" id="pmModal">
+  		<div class="modal-dialog" role="document">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<h5 class="modal-title">Bancos</h5>
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          				<span aria-hidden="true">&times;</span>
+        			</button>
+      			</div>
+      		<div class="modal-body">
+    			<h4>Pago móvil
+    				<small>0134</small>
+    				<small>04128770646</small>
+    				<small>V.- 15678462</small>
+    				</h4>
+                <h4>
+                	<small>0105</small>
+					<small>04249207903</small>
+					<small>V.- 16478934</small>
+                </h4>    
+      		</div>
+  				<div class="modal-footer">
+        			<button type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+      			</div>
+    		</div>
+  		</div>
+	</div>
 	<div class="modal" tabindex="-1" role="dialog" id="bankModal">
   		<div class="modal-dialog" role="document">
     		<div class="modal-content">
@@ -30,27 +57,32 @@
         			</button>
       			</div>
       		<div class="modal-body">
-      			
-    			<h4>Pago móvil
-    				<small>0134</small>
-    				<small>04128770646</small>
-    				<small>V.- 15678462</small>
-            
-                <h4>
-                    <small>0105</small>
-    				<small>04249207903</small>
-    				<small>V.- 16478934</small>
-                    </h4>    
-    			</h4>
-
     			<h4>BANESCO
     				<small>Two Chefs E G C A</small>
     				<small>01340196941961021954</small>
     				<small>J.- 410293853</small>
     				<small>Corriente</small>
     			</h4>
-
-    			
+      		</div>
+  				<div class="modal-footer">
+        			<button type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+      			</div>
+    		</div>
+  		</div>
+	</div>
+	<div class="modal" tabindex="-1" role="dialog" id="zelleModal">
+  		<div class="modal-dialog" role="document">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<h5 class="modal-title">Bancos</h5>
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          				<span aria-hidden="true">&times;</span>
+        			</button>
+      			</div>
+      		<div class="modal-body">
+    			<h4>ZELLE
+    				<small>twochefs2@gmail.com</small>
+    			</h4>
       		</div>
   				<div class="modal-footer">
         			<button type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
@@ -156,7 +188,7 @@
   						<div class="row m-4"> <!-- Método de pago -->
     						<div class="col d-flex flex-column">
     							<label for="pago" class="font-weight-bold">Método de pago</label>
-      							<select class="form-control" name="pago" id="metodo-pago" onchange="showSelectModal()">
+      							<select class="form-control" name="pago" id="metodo-pago" onchange="showSelectModal(event)">
       								<option value="efectivo">Divisas en efectivo</option>
       								<option value="debito">Tarjeta de débito</option>
       								<option value="zelle">Zelle</option>
@@ -166,14 +198,14 @@
     						</div>
   						</div>
   						<div class="row m-4"> <!-- Comprobante de pago y numero de ref -->
-	    						<div class="col">
-      							<label for="myfile" class="font-weight-bold">Captura del pago</label>
+	    					<div class="col" id="payMethodCol">
+      							<label for="myfile" class="font-weight-bold" id="captureLabel">Foto del efectivo</label>
 								<input type="file" id="myfile" class="form-control" name="captura" required>
     						</div>
-    						<div class="col">
+    						<!--<div class="col">
     							<label for="referencia" class="font-weight-bold">Número de referencia</label>
       							<input type="number" class="form-control" placeholder="00000000" name="referencia" required>	
-    						</div>
+    						</div>-->
   						</div>
 					</form>
 				</div>
@@ -184,9 +216,6 @@
 					<button class="btn btn-success" onclick="processData();">Encargar</button>	
 				</div>
 			</div>
-	</section>
-	<section class="container mt-2 mb-4 d-flex justify-content-start">
-		<a href="" class="text-success font-weight-bold" data-toggle="modal" data-target="#bankModal">Ver datos bancarios</a>
 	</section>
 	<footer class="footer pt-4 mt-4">
 		<div class="container d-flex justify-content-center flex-direction-row">
