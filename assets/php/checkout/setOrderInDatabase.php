@@ -4,7 +4,7 @@
 
 	$pedido = json_decode(file_get_contents("php://input"));
 	
-	$setOrderQuery = 'INSERT INTO pedidos(nombre, apellido, telefono, direccion, captura, referencia, fecha, pedido, total) VALUES("'.$pedido->nombre.'", "'.$pedido->apellido.'", "'.$pedido->telefono.'", "'.$pedido->direccion.'", "'.$pedido->captura.'", "'.$pedido->referencia.'", "'.date("Y-m-d, h:m:s").'", \''.json_encode($pedido->pedido).'\', "'.$pedido->total.'")';
+	$setOrderQuery = 'INSERT INTO pedidos(nombre, apellido, telefono, direccion, referencia, fecha, pedido, total) VALUES("'.$pedido->nombre.'", "'.$pedido->apellido.'", "'.$pedido->telefono.'", "'.$pedido->direccion.'", "'.$pedido->captura.'", "'.date("Y-m-d, h:m:s").'", \''.json_encode($pedido->pedido).'\', "'.$pedido->total.'")';
 
 	function setOrderInDatabase($dbC, $pedido, $setOrderQuery) {
 

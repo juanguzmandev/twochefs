@@ -31,7 +31,7 @@ let getDataFromForm = () => {
 	var phone = document.getElementsByName('telefono')[0].value;
 	var address = document.getElementsByName('direccion')[0].value;
 	var capture = document.getElementsByName('captura')[0].value;
-	var reference = document.getElementsByName('referencia')[0].value;
+	//var reference = document.getElementsByName('referencia')[0].value;
 
 	var orderData = {
 		nombre: name,
@@ -39,7 +39,7 @@ let getDataFromForm = () => {
 		telefono: phone,
 		direccion: address,
 		captura: capture,
-		referencia: reference
+		//referencia: reference
 	};
 
 	return orderData;

@@ -1,9 +1,3 @@
-1. Llevar un contador de los productos escogidos (que sea por nuneros, y no deba agregar dos veces el mismo producto. Es decir, que si quiero pedir 2 raciones de papas, ahí mismo pueda escoger cuantas raciones quiero)
-
-4. Que valide los campos vacíos, que si falta algo por llenar lo requiera para completar la orden
-
-5.que haya una opción de métodos de pago, que al seleccionar ya sea pago móvil, trasnferencia, divi sa, efectivo, valide cada opción por separado( que si seleciono pago móvil solo me arroje los datos de pago móvil y así)
-	
 6. Hacer un inicio para un usuario administrador (puede ser en el menú principal, que en cambio de llevar los pedidos en la base de datos, tenga un apartado de usuario supremo, donde pueda agregar, modificar, eliminar productos de una forma más amigable y no por la base de datos 🙁 lleve un registro de ventas, de pagos, de clientes y productos)
 
 10. Que reporte una factura y que el número de factura no se repita y siga contando (aquí va más que todo con el checkout que pida solo un campo de nombre y apellido y no dos como está en el sistema, pida cedula, el campo de teléfono colócale 000-0000000 porque confunde que abajo este un número de teléfono de ejemplo y valide que sean 11 numeros 
