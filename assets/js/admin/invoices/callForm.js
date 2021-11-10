@@ -1,22 +1,39 @@
 
-var addState = false;
-
 const callForm = (section, use) => {
 
-	var invoicesHolder = document.getElementsByClassName(section+'-holder')[0];
+	var holder = document.getElementsByClassName(section+'-holder')[0];
 
-	use == 'add' ? addState = true : addState = false;
+	switch (use) {
 
-	if (addState) {
+		case 'add':
 
-		invoicesHolder.innerHTML = "<p>Hi, add element!</p>";
+			holder.innerHTML = "<p>Hi, add element!</p>";
 
-	} else {
+			break;
 
-		invoicesHolder.innerHTML = "<p>Hi, list element!</p>";
+		case 'list':
 
-	}
-	
+			holder.innerHTML = "<p>Hi, list element!</p>";
+
+			break;
+
+		case 'update':
+
+			holder.innerHTML = "<p>Hi, update element!</p>";
+
+			break;
+
+		case 'del':
+
+			holder.innerHTML = "<p>Hi, del element!</p>";
+
+			break;
+
+		default:
+
+			holder.innerHTML = "<p>Hi, list element!</p>";
+
+	}	
 };
 
-callForm('list');
+//callForm('list');
