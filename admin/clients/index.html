@@ -26,24 +26,16 @@
 		</div>
 	</header>
 	<section class="container d-flex justify-content-center">
-		<span class="option justify-content-center p-4 text-secondary">Agregar</span>
-		<span class="option justify-content-center p-4 text-secondary">Listar</span>
-		<span class="option justify-content-center p-4 text-secondary">Actualizar</span>
-		<span class="option justify-content-center p-4 text-secondary">Eliminar</span>
+		<span class="option justify-content-center p-4 text-secondary" onclick="callForm('clients', 'add')">Agregar</span>
+		<span class="option justify-content-center p-4 text-secondary" onclick="callForm('clients', 'list')">Listar</span>
+		<span class="option justify-content-center p-4 text-secondary" onclick="callForm('clients', 'update')">Actualizar</span>
+		<span class="option justify-content-center p-4 text-secondary" onclick="callForm('clients', 'del')">Eliminar</span>
 	</section>
 	<section class="container d-flex justify-content-center">
-		<article class="container client client-add">
-
-		</article>
-		<article class="container client client-list">
-						
-		</article>
-		<article class="container client client-update">
-						
-		</article>
-		<article class="container client client-del">
-						
+		<article class="container client clients-holder">
+			
 		</article>
 	</section>
+	<script src="../../assets/js/admin/invoices/callForm.js"></script>
 </body>
 </html>

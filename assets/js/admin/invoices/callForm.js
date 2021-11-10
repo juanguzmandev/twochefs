@@ -1,9 +1,9 @@
 
-var invoicesHolder = document.getElementsByClassName('invoices-holder')[0];
-
 var addState = false;
 
-const callForm = use => {
+const callForm = (section, use) => {
+
+	var invoicesHolder = document.getElementsByClassName(section+'-holder')[0];
 
 	use == 'add' ? addState = true : addState = false;
 
