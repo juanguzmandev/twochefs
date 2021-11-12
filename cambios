@@ -1,16 +1,4 @@
-1. Llevar un contador de los productos escogidos (que sea por nuneros, y no deba agregar dos veces el mismo producto. Es decir, que si quiero pedir 2 raciones de papas, ahí mismo pueda escoger cuantas raciones quiero)
-
-2. Validar los campos de texto ( solo acepte letras) y los de nuneros para que solo registren numeros
-
-4. Que valide los campos vacíos, que si falta algo por llenar lo requiera para completar la orden
-
-5.que haya una opción de métodos de pago, que al seleccionar ya sea pago móvil, trasnferencia, divi sa, efectivo, valide cada opción por separado( que si seleciono pago móvil solo me arroje los datos de pago móvil y así)
-	
 6. Hacer un inicio para un usuario administrador (puede ser en el menú principal, que en cambio de llevar los pedidos en la base de datos, tenga un apartado de usuario supremo, donde pueda agregar, modificar, eliminar productos de una forma más amigable y no por la base de datos 🙁 lleve un registro de ventas, de pagos, de clientes y productos)
-
-7. Que las imágenes del carrusel principal sean del mismo tamaño (esto porque la última es un poco pequeña y el profesor dice que todas deben tener el mismo tamaño)
-
-9. De no hacer el contador de productos puede hacerse un check o un ojito que diga cuantos de ese producto tengo a pagar
 
 10. Que reporte una factura y que el número de factura no se repita y siga contando (aquí va más que todo con el checkout que pida solo un campo de nombre y apellido y no dos como está en el sistema, pida cedula, el campo de teléfono colócale 000-0000000 porque confunde que abajo este un número de teléfono de ejemplo y valide que sean 11 numeros 
 

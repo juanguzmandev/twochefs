@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Clientes - TwoChefs</title>
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<!-- FontAwesome -->
+	<script src="https://kit.fontawesome.com/7b31fa78fb.js" crossorigin="anonymous"></script>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<!-- Bootstrap JS -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="../../assets/css/admin/products/index.css">
+</head>
+<body>
+	<header class="d-flex flex-row shadow-sm">
+		<div class="w-25 m-2">
+			<img src="../../assets/images/logo/logo.png" alt="logo" class="w-25" onclick="location.href='../';">
+		</div>
+		<div class="w-75 d-flex justify-content-end align-items-center">
+			<a class="text-decoration-none" href="../home/">
+				<span class="text-danger font-weight-bold mr-4">Atrás</span>
+			</a>
+		</div>
+	</header>
+	<section class="container d-flex justify-content-center">
+		<span class="option justify-content-center p-4 text-secondary" onclick="callForm('clients', 'add')">Agregar</span>
+		<span class="option justify-content-center p-4 text-secondary" onclick="callForm('clients', 'list')">Listar</span>
+		<span class="option justify-content-center p-4 text-secondary" onclick="callForm('clients', 'update')">Actualizar</span>
+		<span class="option justify-content-center p-4 text-secondary" onclick="callForm('clients', 'del')">Eliminar</span>
+	</section>
+	<section class="container d-flex justify-content-center">
+		<article class="container client clients-holder">
+			
+		</article>
+	</section>
+	<script src="../../assets/js/admin/invoices/callForm.js"></script>
+</body>
+</html>

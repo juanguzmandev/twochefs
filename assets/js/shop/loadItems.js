@@ -35,6 +35,12 @@ let setTotal = (price) => {
 
 	cartTotal = cartTotal + parseInt(price);
 	cartTotalElement.innerHTML = cartTotal + '$';
+
+	// Set products quantity
+
+	var cartTotalQuantityElement = document.getElementById('productsCounter');
+
+	cartTotalQuantityElement.innerHTML = parseInt(cartTotalQuantityElement.innerHTML) + 1;
 };
 
 let registerOnMemory = (name, price, category) => {
@@ -66,7 +72,7 @@ let setHtmlCategoryItems = (category, items) => {
 
 	items.forEach(item => {
 
-		var htmlCard = '<div class="card m-2 p-2 ml-4 mr-4" style="width: 20rem; min-width: 25%; overflow: hidden;"><img src="'+'../assets/images/shop/'+category+'/'+item.link+'" class="card-img-top product-image" alt="..." style="max-height: 70%; min-height: 55%;"><div class="card-body mt-4" style="overflow: hidden;"><h5 class="card-title">'+item.nombre+'</h5><p class="card-text">'+item.descripcion+'<br><br><span class="text-success mt-4">'+item.precio+'$</span></p><div class="d-flex justify-content-left align-items-center w-100"><a href="#" class="btn btn-primary mb-4" onclick="loadOnCart('+'\''+item.nombre+'\''+','+'\''+item.precio+'\''+', '+'\''+item.categoria+'\''+')">Agregar</a><a href="#" class="btn btn-danger ml-2" style="display: none;" onclick="deleteFromCart('+'\''+item.nombre+'\''+','+'\''+item.precio+'\''+', '+'\''+item.categoria+'\''+');">Eliminar</a></div></div></div>';
+		var htmlCard = '<div class="card m-2 p-2 ml-4 mr-4" style="width: 25rem; min-width: 25%; overflow: hidden;"><img src="'+'../assets/images/shop/'+category+'/'+item.link+'" class="card-img-top product-image" alt="..." style="max-height: 70%; min-height: 55%;"><div class="card-body mt-4" style="overflow: hidden;"><h5 class="card-title">'+item.nombre+'</h5><p class="card-text">'+item.descripcion+'<br><br><span class="text-success mt-4">'+item.precio+'$</span></p><div class="d-flex justify-content-left align-items-start w-100 flex-column"><div class="d-flex justify-content-start"><input type="number" class="form-control w-50 mb-4" min="1" placeholder="Cantidad"/></div><div class="d-flex justify-content-end w-100 align-items-end"><a href="#" class="btn btn-primary mb-4" onclick="loadOnCart('+'\''+item.nombre+'\''+','+'\''+item.precio+'\''+', '+'\''+item.categoria+'\''+')">Agregar</a></div></div></div></div>';
 
 		itemsHtml = itemsHtml + htmlCard;
 	});
@@ -80,7 +86,6 @@ let loadCategoryItems = (category) => {
 	axios.get('../assets/php/shop/loadItems.php?cat='+category)
 	.then((response) => {
 
-		console.log(response.data);
 		setHtmlCategoryItems(category, response.data);
 	});
 };
