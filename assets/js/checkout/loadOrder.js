@@ -1,3 +1,26 @@
+
+var payScreenshot;
+
+const readFile = input => {
+
+  let file = input.files[0];
+
+  let reader = new FileReader();
+
+  reader.readAsText(file);
+
+  reader.onload = () => { payScreenshot = reader.result };
+
+  reader.onerror = function() {
+
+  	alert('Error subiendo la captura del pago');
+
+    console.log(reader.error);
+
+  };
+
+};
+
 let setInDatabase = (formData, cart, total) => {
 	
 	formData.pedido = cart;
@@ -30,7 +53,9 @@ let getDataFromForm = () => {
 	var lastName = document.getElementsByName('apellido')[0].value;
 	var phone = document.getElementsByName('telefono')[0].value;
 	var address = document.getElementsByName('direccion')[0].value;
-	var capture = document.getElementsByName('captura')[0].value;
+	var method = document.getElementsByName('pago')[0].value;
+	var capture = payScreenshot;
+
 	//var reference = document.getElementsByName('referencia')[0].value;
 
 	var orderData = {
@@ -38,15 +63,15 @@ let getDataFromForm = () => {
 		apellido: lastName,
 		telefono: phone,
 		direccion: address,
-		captura: capture,
-		//referencia: reference
+		metodo: method,
+		captura: capture
 	};
 
 	return orderData;
 	
 };
 
-let processData = () => {
+let processData = ev => {
 
 	var cart = JSON.parse(localStorage.getItem('cart'));
 	var total = localStorage.getItem('total');
