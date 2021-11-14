@@ -1,30 +1,16 @@
 
-var payScreenshot;
+var file;
 
 const readFile = input => {
 
-  let file = input.files[0];
-
-  let reader = new FileReader();
-
-  reader.readAsText(file);
-
-  reader.onload = () => { payScreenshot = reader.result };
-
-  reader.onerror = function() {
-
-  	alert('Error subiendo la captura del pago');
-
-    console.log(reader.error);
-
-  };
+  file = input.files[0];
 
 };
 
 let setInDatabase = (formData, cart, total) => {
 	
-	formData.pedido = cart;
-	formData.total = total;
+	formData.append('pedido', cart);
+	formData.append('total', total);
 
 	axios.post('../assets/php/checkout/setOrderInDatabase.php', formData)
 	.then((response) => {
@@ -54,18 +40,16 @@ let getDataFromForm = () => {
 	var phone = document.getElementsByName('telefono')[0].value;
 	var address = document.getElementsByName('direccion')[0].value;
 	var method = document.getElementsByName('pago')[0].value;
-	var capture = payScreenshot;
+	var capture = file;
 
-	//var reference = document.getElementsByName('referencia')[0].value;
+	var orderData = new FormData();
 
-	var orderData = {
-		nombre: name,
-		apellido: lastName,
-		telefono: phone,
-		direccion: address,
-		metodo: method,
-		captura: capture
-	};
+	orderData.append('nombre', name);
+	orderData.append('apellido', lastName);
+	orderData.append('telefono', phone);
+	orderData.append('direccion', address);
+	orderData.append('metodo', method);
+	orderData.append('captura', capture);
 
 	return orderData;
 	
@@ -73,7 +57,9 @@ let getDataFromForm = () => {
 
 let processData = ev => {
 
-	var cart = JSON.parse(localStorage.getItem('cart'));
+	//var cart = JSON.parse(localStorage.getItem('cart'));
+
+	var cart = localStorage.getItem('cart');
 	var total = localStorage.getItem('total');
 
 	var formData = getDataFromForm();

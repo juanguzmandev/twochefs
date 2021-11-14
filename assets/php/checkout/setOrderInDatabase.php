@@ -2,9 +2,17 @@
 	
 	$dbC = mysqli_connect("127.0.0.1", "root", "", "twochefs");
 
-	$pedido = json_decode(file_get_contents("php://input"));
-	
-	$setOrderQuery = 'INSERT INTO pedidos(nombre, apellido, telefono, direccion, fecha, pedido, total) VALUES("'.$pedido->nombre.'", "'.$pedido->apellido.'", "'.$pedido->telefono.'", "'.$pedido->direccion.'","'.date("Y-m-d, h:m:s").'", \''.json_encode($pedido->pedido).'\', "'.$pedido->total.'")';
+	#$pedido = json_decode(file_get_contents("php://input"));
+
+	$pedido = $_POST;
+
+	$nombre_captura = $_FILES['captura']['name'];
+	$captura = $_FILES['captura']['tmp_name'];
+
+	$save_location = './captures/'.$nombre_captura;
+
+	$setOrderQuery = 'INSERT INTO pedidos(nombre, apellido, telefono, direccion, fecha, pedido, total, captura) VALUES("'.$pedido['nombre'].'", "'.$pedido['apellido'].'", "'.$pedido['telefono'].'", "'.$pedido['direccion'].'","'.date("Y-m-d, h:m:s").'", \''.$pedido['pedido'].'\', "'.$pedido['total'].'","'.$save_location.'")';
+
 
 	function setOrderInDatabase($dbC, $pedido, $setOrderQuery) {
 
@@ -14,16 +22,25 @@
 
 		} else {
 
-			return false;
+			echo mysqli_error($dbC);
 		}
 
 	}
+	
+	if(move_uploaded_file($captura, $save_location)) {
 
-	if(setOrderInDatabase($dbC, $pedido, $setOrderQuery)) {
-		echo 'OK';
-	} else {
+		if(setOrderInDatabase($dbC, $pedido, $setOrderQuery)) {
+
+			echo 'OK';
+
+		} else {
 		
-		echo 'NO';
+			echo 'NO';
+		}	
+	} else {
+
+		echo "FILE NOT SAVED";
+
 	}
 
  ?>
