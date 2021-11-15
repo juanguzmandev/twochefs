@@ -11,3 +11,5 @@ Ventas
 Pagos
 Facturas 
 Y de estos puedan registrarse, buscar, actualizar, imprimir
+
+---- Agregar hora a la fecha en la columna fecha de la tabla pedidos

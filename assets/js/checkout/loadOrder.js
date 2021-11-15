@@ -5,6 +5,16 @@ const readFile = input => {
 
   file = input.files[0];
 
+  if(file.name.split('.')[1] != 'jpg' && file.name.split('.')[1] != 'png') {
+
+  	alert('Por favor, suba un archivo de imagen válido (PNG o JPG)');
+
+  	file = null;
+
+  	input.value = '';
+
+  }
+
 };
 
 let setInDatabase = (formData, cart, total) => {

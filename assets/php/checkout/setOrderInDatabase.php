@@ -1,5 +1,7 @@
 <?php 
-	
+
+	setlocale(LC_ALL,"es_VE");
+
 	$dbC = mysqli_connect("127.0.0.1", "root", "", "twochefs");
 
 	#$pedido = json_decode(file_get_contents("php://input"));
@@ -11,7 +13,7 @@
 
 	$save_location = './captures/'.$nombre_captura;
 
-	$setOrderQuery = 'INSERT INTO pedidos(nombre, apellido, telefono, direccion, fecha, pedido, total, captura) VALUES("'.$pedido['nombre'].'", "'.$pedido['apellido'].'", "'.$pedido['telefono'].'", "'.$pedido['direccion'].'","'.date("Y-m-d, h:m:s").'", \''.$pedido['pedido'].'\', "'.$pedido['total'].'","'.$save_location.'")';
+	$setOrderQuery = 'INSERT INTO pedidos(nombre, apellido, telefono, direccion, fecha, pedido, total, captura) VALUES("'.$pedido['nombre'].'", "'.$pedido['apellido'].'", "'.$pedido['telefono'].'", "'.$pedido['direccion'].'","'.date("Y-m-d H:i:s").'", \''.$pedido['pedido'].'\', "'.$pedido['total'].'","'.$save_location.'")';
 
 
 	function setOrderInDatabase($dbC, $pedido, $setOrderQuery) {
