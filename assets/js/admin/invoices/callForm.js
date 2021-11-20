@@ -1,3 +1,26 @@
+const addProductItems = () => {
+
+	const name = document.getElementsByName('nombre')[0].value;
+	const description = document.getElementsByName('descripcion')[0].value;
+	const price = document.getElementsByName('precio')[0].value;
+	const category = document.getElementsByName('categoria')[0].value;
+	const availability = document.getElementsByName('disponible')[0].value;
+	const image = document.getElementsByName('imagen_producto')[0].files[0];
+
+	console.log(name, description, price, category, availability, image);
+
+	var productInfo = new FormData();
+
+	productInfo.append('nombre', name);
+	productInfo.append('descripcion', description);
+	productInfo.append('precio', price);
+	productInfo.append('categoria', category);
+	productInfo.append('disponible', availability);
+	productInfo.append('imagen', image);
+
+
+
+};
 
 const displayGetProductItems = products => {
 
@@ -25,12 +48,56 @@ const getItems = section => {
 	modeData.append('type', section);
 	modeData.append('action', 'list');
 
-	axios.post('../../assets/php/admin/get.php', modeData).then(response => {
-		displayGetProductItems(response.data);
-	});
+	switch (section) {
+
+		case 'products':
+
+			axios.post('../../assets/php/admin/get.php', modeData).then(response => {
+				displayGetProductItems(response.data);
+			});
+
+			break;
+
+		case 'clients':
+
+			axios.post('../../assets/php/admin/get.php', modeData).then(response => {
+				displayGetClientItems(response.data);
+			});			
+
+			break;
+
+		case 'invoices':
+
+			axios.post('../../assets/php/admin/get.php', modeData).then(response => {
+				displayGetInvoiceItems(response.data);
+			});			
+ 
+			break;
+
+	}
 };
 
-const addItem = section => {};
+const addItem = (section, holder) => {
+
+	switch (section) {
+
+		case 'products':
+
+			holder.innerHTML = '<div class="container d-flex justify-content-center flex-column"><div class="row p-4"><div class="col"><label for="nombre">Nombre</label><input type="text" name="nombre" class="form-control"></div><div class="col"><label for="descripcion">Descripción</label><input type="text" name="descripcion" class="form-control"></div></div><div class="row p-4"><div class="col"><label for="precio">Precio (USD)</label><input type="number" name="precio" class="form-control"></div><div class="col"><label for="categoria">Categoría</label><select name="categoria" id="categoria" class="form-control"><option value="bebidas">Bebidas</option><option value="comidas">Comidas</option><option value="postres">Postres</option></select></div></div><div class="row p-4"><div class="col"><label for="disponible">Disponibilidad</label><select name="disponible" id="disponible" class="form-control"><option value="1">Disponible</option><option value="0">No Disponible</option></select></div><div class="col"><label for="imagen_producto">Imagen del producto</label><input type="file" name="imagen_producto" class="form-control"></div></div><div class="row p-4"><div class="col d-flex justify-content-center mt-4"><button class="btn btn-success" id="add-button">Agregar</button></div></div></div>';
+
+			document.getElementById('add-button').addEventListener('click', addProductItems);
+
+			break;
+
+		case 'invoices':
+
+			break;
+
+		case 'clients':
+
+			break;
+	}
+};
 const delItem = section => {};
 
 const callForm = (section, use) => {
@@ -40,8 +107,8 @@ const callForm = (section, use) => {
 	switch (use) {
  
 		case 'add':
-
-			holder.innerHTML = "<p>Hi, add element!</p>";
+			
+			addItem(section, holder);
 
 			break;
 
@@ -60,7 +127,7 @@ const callForm = (section, use) => {
 
 		case 'del':
 
-			holder.innerHTML = "<p>Hi, del element!</p>";
+			delItem(section);
 
 			break;
 
