@@ -15,6 +15,9 @@
 			array_push($items, $result_array);
 		}
 
+		#array_unshift($items, $type_js);
+		#array_unshift($items, $action_js);
+
 		return json_encode($items);
 
 	}

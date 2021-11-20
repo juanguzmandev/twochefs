@@ -1,4 +1,24 @@
 
+const displayGetProductItems = products => {
+
+	var tableOpenTag = '<table class="table"><thead><tr><th scope="col">Nombre</th><th scope="col">Link</th><th scope="col">Precio</th><th scope="col">Descripción</th><th scope="col">Categoría</th><th scope="col">Disponible</th></tr></thead><tbody>';
+	var tableCloseTag = '</tbody></table>';
+
+	products.forEach(product => {
+
+		var productRow = '<tr><th>'+product.nombre+'</th><td>'+product.link+'</td><td>'+product.precio+'</td><td>'+product.descripcion+'</td><td>'+product.categoria+'</td><td>'+product.disponible+'</td></tr>';
+
+		tableOpenTag = tableOpenTag + productRow;
+	});
+
+	tableOpenTag = tableOpenTag + tableCloseTag;
+
+	var holder = document.getElementsByClassName('products-holder')[0];
+
+	holder.innerHTML = tableOpenTag;
+
+};
+
 const getItems = section => {
 
 	var modeData = new FormData();
@@ -6,7 +26,7 @@ const getItems = section => {
 	modeData.append('action', 'list');
 
 	axios.post('../../assets/php/admin/get.php', modeData).then(response => {
-		console.log(response);
+		displayGetProductItems(response.data);
 	});
 };
 
