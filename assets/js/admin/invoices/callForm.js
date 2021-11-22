@@ -1,5 +1,7 @@
 const addProductItems = () => {
 
+	alert('Hola');
+
 	const name = document.getElementsByName('nombre')[0].value;
 	const description = document.getElementsByName('descripcion')[0].value;
 	const price = document.getElementsByName('precio')[0].value;
@@ -7,7 +9,7 @@ const addProductItems = () => {
 	const availability = document.getElementsByName('disponible')[0].value;
 	const image = document.getElementsByName('imagen_producto')[0].files[0];
 
-	console.log(name, description, price, category, availability, image);
+	//console.log(name, description, price, category, availability, image);
 
 	var productInfo = new FormData();
 
@@ -17,6 +19,10 @@ const addProductItems = () => {
 	productInfo.append('categoria', category);
 	productInfo.append('disponible', availability);
 	productInfo.append('imagen', image);
+
+	axios.post('../../assets/php/admin/add.php', productInfo).then(response => {
+		console.log(response);
+	});
 
 
 
