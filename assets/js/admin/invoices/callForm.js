@@ -3,8 +3,6 @@
 
 const addProductItems = () => {
 
-	alert('Hola');
-
 	const name = document.getElementsByName('nombre')[0].value;
 	const description = document.getElementsByName('descripcion')[0].value;
 	const price = document.getElementsByName('precio')[0].value;
