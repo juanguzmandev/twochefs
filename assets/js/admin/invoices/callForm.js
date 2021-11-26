@@ -1,3 +1,6 @@
+
+// FUNCIONES PARA CREAR Y ELIMINAR PRODUCTOS
+
 const addProductItems = () => {
 
 	alert('Hola');
@@ -21,10 +24,34 @@ const addProductItems = () => {
 	productInfo.append('imagen', image);
 
 	axios.post('../../assets/php/admin/add.php', productInfo).then(response => {
-		console.log(response);
+
+		response.data == 'OK' ? alert('Producto ' + productInfo.get('nombre') + ' agregado correctamente') : alert('Error agregando producto. Por favor, revise los datos ingresados');
 	});
 
+};
 
+const deleteProductItems = (section) => {
+
+	const productName = document.getElementsByName('nombre_producto')[0].value;
+
+	var deleteProductForm = new FormData();
+
+	deleteProductForm.append('nombre_producto', productName);
+	deleteProductForm.append('seccion', section);
+
+	axios.post('../../assets/php/admin/del.php', deleteProductForm).then(response => {
+		response.data == 'OK' ? alert('Producto ' + productInfo.get('nombre') + ' eliminado correctamente') : alert('No se ha encontrado el producto a eliminar. Por favor, revise los datos ingresados');
+	});
+
+};
+
+// FUNCIONES PARA LISTAR 
+
+const displayGetInvoiceItems = invoices => {
+
+};
+
+const displayGetClientItems = clients => {
 
 };
 
@@ -47,6 +74,8 @@ const displayGetProductItems = products => {
 	holder.innerHTML = tableOpenTag;
 
 };
+
+// FUNCIONES PARA CADA PROCEDIMIENTO
 
 const getItems = section => {
 
@@ -104,7 +133,28 @@ const addItem = (section, holder) => {
 			break;
 	}
 };
-const delItem = section => {};
+const delItem = (section, holder) => {
+
+	switch (section) {
+
+		case 'products':
+
+			holder.innerHTML = '<div class="container d-flex justify-content-center flex-column"><div class="row p-4"><div class="col"><label for="nombre_producto">Nombre exacto del producto</label><input type="text" name="nombre_producto" class="form-control" placeholder="Hamburguesa 1/4 Libra"></div></div><div class="row pl-4 pr-4"><div class="col"><button id="del-button" class="btn btn-success">Eliminar</button></div></div></div>';
+
+			document.getElementById('del-button').addEventListener('click', () => {deleteProductItems(section)});
+
+			break;
+
+		case 'invoices':
+
+			break;
+
+		case 'clients':
+
+			break;
+	}
+
+};
 
 const callForm = (section, use) => {
 
@@ -133,7 +183,7 @@ const callForm = (section, use) => {
 
 		case 'del':
 
-			delItem(section);
+			delItem(section, holder);
 
 			break;
 
