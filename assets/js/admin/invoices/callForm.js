@@ -10,8 +10,6 @@ const addProductItems = () => {
 	const availability = document.getElementsByName('disponible')[0].value;
 	const image = document.getElementsByName('imagen_producto')[0].files[0];
 
-	//console.log(name, description, price, category, availability, image);
-
 	var productInfo = new FormData();
 
 	productInfo.append('nombre', name);
@@ -28,7 +26,7 @@ const addProductItems = () => {
 
 };
 
-const deleteProductItems = (section) => {
+const deleteProductItems = section => {
 
 	const productName = document.getElementsByName('nombre_producto')[0].value;
 
@@ -43,6 +41,12 @@ const deleteProductItems = (section) => {
 
 };
 
+// FUNCIONES PARA CREAR Y ELIMINAR CLIENTES
+
+const addClientItems = section => {
+
+};	
+
 // FUNCIONES PARA LISTAR 
 
 const displayGetInvoiceItems = invoices => {
@@ -50,6 +54,22 @@ const displayGetInvoiceItems = invoices => {
 };
 
 const displayGetClientItems = clients => {
+
+	var tableOpenTag = '<table class="table"><thead><tr><th scope="col">ID</th><th scope="col">Nombre</th><th scope="col">Email</th></tr></thead><tbody>';
+	var tableCloseTag = '</tbody></table>';
+
+	clients.forEach(client => {
+
+		var clientRow = '<tr><th>'+client.id+'</th><td>'+client.nombre+'</td><td>'+client.email+'</td></tr>';
+
+		tableOpenTag = tableOpenTag + clientRow;
+	});
+
+	tableOpenTag = tableOpenTag + tableCloseTag;
+
+	var holder = document.getElementsByClassName('clients-holder')[0];
+
+	holder.innerHTML = tableOpenTag;
 
 };
 
@@ -124,9 +144,13 @@ const addItem = (section, holder) => {
 
 		case 'invoices':
 
+
+
 			break;
 
 		case 'clients':
+
+			
 
 			break;
 	}
@@ -148,6 +172,10 @@ const delItem = (section, holder) => {
 			break;
 
 		case 'clients':
+
+			holder.innerHTML = '<div class="container d-flex justify-content-center flex-column"><div class="row p-4"><div class="col"><label for="id_cliente">ID del cliente</label><input type="text" name="id_cliente" class="form-control"></div></div><div class="row pl-4 pr-4"><div class="col"><button id="del-button" class="btn btn-success">Eliminar</button></div></div></div>';
+
+			document.getElementById('del-button').addEventListener('click', () => {deleteClientItems(section)});
 
 			break;
 	}

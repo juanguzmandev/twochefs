@@ -15,9 +15,6 @@
 			array_push($items, $result_array);
 		}
 
-		#array_unshift($items, $type_js);
-		#array_unshift($items, $action_js);
-
 		return json_encode($items);
 
 	}
@@ -28,19 +25,19 @@
 
 			case 'products':
 
-				$list_products_sql = 'SELECT * FROM productos';
+				$sql = 'SELECT * FROM productos';
 
 				break;
 
 			case 'clients':
 
-				$list_clients_sql = 'SELECT * FROM clientes';
+				$sql = 'SELECT * FROM clientes';
 				
 				break;
 
 			case 'invoices':
 
-				$list_invoices_sql = 'SELECT * FROM facturas';
+				$sql = 'SELECT * FROM facturas';
 				
 				break;
 
@@ -48,7 +45,7 @@
 
 		
 
-		echo makeQueries(mysqli_connect('127.0.0.1', 'root', '', 'twochefs'), $list_products_sql);
+		echo makeQueries(mysqli_connect('127.0.0.1', 'root', '', 'twochefs'), $sql);
 	
 	}
 	
