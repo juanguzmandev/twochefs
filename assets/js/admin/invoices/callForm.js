@@ -45,7 +45,25 @@ const deleteProductItems = section => {
 
 const addClientItems = section => {
 
+	var client = {
+		name: document.getElementsByName('nombre_cliente')[0].value,
+		email: document.getElementsByName('email_cliente')[0].value
+	};
+
+	var clientInfo = new FormData();
+
+	clientInfo.append('nombre', client.name);
+	clientInfo.append('email', client.email);
+
+	axios.post('../../assets/php/admin/add_client.php', clientInfo).then(response => {
+		response.data == 'OK' ? alert('Cliente ' + clientInfo.get('nombre') + ' agregado correctamente') : alert('No se ha podido agregar el cliente. Por favor verifique los datos');
+	});
+
 };	
+
+const deleteClientItems = section => {
+	
+};
 
 // FUNCIONES PARA LISTAR 
 
@@ -60,7 +78,7 @@ const displayGetClientItems = clients => {
 
 	clients.forEach(client => {
 
-		var clientRow = '<tr><th>'+client.id+'</th><td>'+client.nombre+'</td><td>'+client.email+'</td></tr>';
+		var clientRow = '<tr><th>'+client.id+'</th><td>'+client.nombre+'</td><td>'+client.correo+'</td></tr>';
 
 		tableOpenTag = tableOpenTag + clientRow;
 	});
@@ -150,7 +168,9 @@ const addItem = (section, holder) => {
 
 		case 'clients':
 
-			
+			holder.innerHTML = '<div class="container d-flex justify-content-center flex-column"><div class="row p-4"><div class="col"><label for="nombre_cliente">Nombre</label><input type="text" name="nombre_cliente" class="form-control"></div><div class="col"><label for="email_cliente">Email</label><input type="email" name="email_cliente" class="form-control"></div></div><div class="row p-4"><div class="col d-flex justify-content-center mt-4"><button class="btn btn-success" id="add-button">Agregar</button></div></div></div>';
+
+			document.getElementById('add-button').addEventListener('click', addClientItems);
 
 			break;
 	}
