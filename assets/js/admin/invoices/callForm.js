@@ -62,7 +62,18 @@ const addClientItems = section => {
 };	
 
 const deleteClientItems = section => {
-	
+
+	const clientID = document.getElementsByName('id_cliente')[0].value;
+
+	var deleteClientInfo = new FormData();
+
+	deleteClientInfo.append('id', clientID);
+	deleteClientInfo.append('seccion', section);
+
+	axios.post('../../assets/php/admin/del.php', deleteClientInfo).then(response => {
+		response.data == 'OK' ? alert('Cliente eliminado correctamente') : alert('No se ha encontrado el cliente a eliminar. Por favor, revise los datos ingresados');
+	});	
+
 };
 
 // FUNCIONES PARA LISTAR 

@@ -4,9 +4,20 @@
 
 	$seccion = $_POST['seccion'];
 
-	function delete_client() {
+	function delete_client($db) {
 
-		echo 'Función para eliminar clientes';
+		$client_id = $_POST['id'];
+
+		$eliminar_cliente_sql = 'DELETE FROM clientes WHERE id = '.$client_id;
+
+		if($delete_client_query = mysqli_query($db, $eliminar_cliente_sql)) {
+
+			echo 'OK';
+
+		} else {
+
+			echo mysqli_error($db);
+		}		
 	}
 
 	function delete_invoice() {
@@ -48,7 +59,7 @@
 
 		case 'clients':
 
-			delete_client();
+			delete_client($db);
 
 			break;
 	}
