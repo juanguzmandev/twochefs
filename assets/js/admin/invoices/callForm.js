@@ -87,6 +87,23 @@ const addInvoiceItems = section => {
 
 const displayGetInvoiceItems = invoices => {
 
+	var tableOpenTag = '<table class="table"><thead><tr><th scope="col">ID</th><th scope="col">Nombre</th><th scope="col">Apellido</th><th scope="col">Teléfono</th><th scope="col">Dirección</th><th scope="col">Pago</th></tr></thead><tbody>';
+	var tableCloseTag = '</tbody></table>';
+
+	invoices.forEach(invoice => {
+
+		var invoiceRow = '<tr><th>'+invoice.id+'</th><td>'+invoice.nombre+'</td><td>'+invoice.apellido+'</td><td>'+client.telefono+'</td><td>'+client.direccion+'</td><td>'+client.pago+'</td></tr>';
+
+		tableOpenTag = tableOpenTag + invoiceRow;
+	});
+
+	tableOpenTag = tableOpenTag + tableCloseTag;
+
+	var holder = document.getElementsByClassName('invoices-holder')[0];
+
+	holder.innerHTML = tableOpenTag;
+
+
 };
 
 const displayGetClientItems = clients => {
