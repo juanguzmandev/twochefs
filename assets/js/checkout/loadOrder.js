@@ -24,7 +24,7 @@ const saveInvoice = invoiceData => {
 		lastName: invoiceData.get('apellido'),
 		phone: invoiceData.get('telefono'),
 		address: invoiceData.get('direccion'),
-		method: invoiceData.get('pago'),
+		method: invoiceData.get('metodo'),
 		cart: invoiceData.get('pedido'),
 		total: invoiceData.get('total'),
 	};
