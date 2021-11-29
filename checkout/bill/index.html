@@ -20,12 +20,14 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-	<div class="container d-flex justify-content-center">
-		<div id="invoice-holder">
-			<img src="../../assets/images/logo/logo.png" alt="logo">
-			<h1 class="fw-bold">Factura Nro. 0001</h1>
-			<span>Nombre: Juan</span>
+	<div class="container">
+		<div class="container">
+			<div class="logo d-flex justify-content-center">
+				<img src="../../assets/images/logo/logo.png" alt="logo" class="p-4 m-4" style="width: 20%; background-position: center; background-size: cover; background-repeat: no-repeat;">
+			</div>
+			<div id="invoice-holder" class="container d-flex justify-content-center flex-column"></div>
 		</div>
 	</div>
+	<script src="../../assets/js/checkout/bill/getInvoiceInfo.js"></script>
 </body>
 </html>

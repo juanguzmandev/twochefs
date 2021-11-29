@@ -17,7 +17,23 @@ const readFile = input => {
 
 };
 
-let setInDatabase = (formData, cart, total) => {
+const saveInvoice = invoiceData => {
+
+	const invoice = {
+		name: invoiceData.get('nombre'),
+		lastName: invoiceData.get('apellido'),
+		phone: invoiceData.get('telefono'),
+		address: invoiceData.get('direccion'),
+		method: invoiceData.get('pago'),
+		cart: invoiceData.get('pedido'),
+		total: invoiceData.get('total'),
+	};
+
+	sessionStorage.setItem('invoice', JSON.stringify(invoice));
+
+};
+
+const setInDatabase = (formData, cart, total) => {
 	
 	formData.append('pedido', cart);
 	formData.append('total', total);
@@ -28,6 +44,8 @@ let setInDatabase = (formData, cart, total) => {
 		console.log(response);
 
 		if (response.data == 'OK') {
+
+			saveInvoice(formData);
 
 			document.getElementById('orderAlert').innerHTML = 'El pedido se procesó correctamente. Se realizará una llamada para confirmar su orden';
 

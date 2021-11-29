@@ -21,7 +21,7 @@ const addProductItems = () => {
 
 	axios.post('../../assets/php/admin/add.php', productInfo).then(response => {
 
-		response.data == 'OK' ? alert('Producto ' + productInfo.get('nombre') + ' agregado correctamente') : alert('Error agregando producto. Por favor, revise los datos ingresados');
+		response.data == 'OK' ? alert('Producto "' + productInfo.get('nombre') + '" agregado correctamente') : alert('Error agregando producto. Por favor, revise los datos ingresados');
 	});
 
 };
@@ -36,7 +36,7 @@ const deleteProductItems = section => {
 	deleteProductForm.append('seccion', section);
 
 	axios.post('../../assets/php/admin/del.php', deleteProductForm).then(response => {
-		response.data == 'OK' ? alert('Producto ' + productInfo.get('nombre') + ' eliminado correctamente') : alert('No se ha encontrado el producto a eliminar. Por favor, revise los datos ingresados');
+		response.data == 'OK' ? alert('Producto "' + productInfo.get('nombre') + '" eliminado correctamente') : alert('No se ha encontrado el producto a eliminar. Por favor, revise los datos ingresados');
 	});
 
 };
@@ -56,7 +56,7 @@ const addClientItems = section => {
 	clientInfo.append('email', client.email);
 
 	axios.post('../../assets/php/admin/add_client.php', clientInfo).then(response => {
-		response.data == 'OK' ? alert('Cliente ' + clientInfo.get('nombre') + ' agregado correctamente') : alert('No se ha podido agregar el cliente. Por favor verifique los datos');
+		response.data == 'OK' ? alert('Cliente "' + clientInfo.get('nombre') + '" agregado correctamente') : alert('No se ha podido agregar el cliente. Por favor verifique los datos');
 	});
 
 };	
@@ -75,6 +75,13 @@ const deleteClientItems = section => {
 	});	
 
 };
+
+// FUNCIÓN PARA CREAR FACTURAS 
+
+const addInvoiceItems = section => {
+	
+};
+
 
 // FUNCIONES PARA LISTAR 
 
@@ -173,7 +180,9 @@ const addItem = (section, holder) => {
 
 		case 'invoices':
 
+			holder.innerHTML = '';
 
+			document.getElementById('add-button').addEventListener('click', addInvoiceItems);
 
 			break;
 
