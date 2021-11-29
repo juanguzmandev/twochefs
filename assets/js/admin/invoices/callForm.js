@@ -76,13 +76,6 @@ const deleteClientItems = section => {
 
 };
 
-// FUNCIÓN PARA CREAR FACTURAS 
-
-const addInvoiceItems = section => {
-	
-};
-
-
 // FUNCIONES PARA LISTAR 
 
 const displayGetInvoiceItems = invoices => {
@@ -192,14 +185,6 @@ const addItem = (section, holder) => {
 			holder.innerHTML = '<div class="container d-flex justify-content-center flex-column"><div class="row p-4"><div class="col"><label for="nombre">Nombre</label><input type="text" name="nombre" class="form-control"></div><div class="col"><label for="descripcion">Descripción</label><input type="text" name="descripcion" class="form-control"></div></div><div class="row p-4"><div class="col"><label for="precio">Precio (USD)</label><input type="number" name="precio" class="form-control"></div><div class="col"><label for="categoria">Categoría</label><select name="categoria" id="categoria" class="form-control"><option value="bebidas">Bebidas</option><option value="comidas">Comidas</option><option value="postres">Postres</option></select></div></div><div class="row p-4"><div class="col"><label for="disponible">Disponibilidad</label><select name="disponible" id="disponible" class="form-control"><option value="1">Disponible</option><option value="0">No Disponible</option></select></div><div class="col"><label for="imagen_producto">Imagen del producto</label><input type="file" name="imagen_producto" class="form-control"></div></div><div class="row p-4"><div class="col d-flex justify-content-center mt-4"><button class="btn btn-success" id="add-button">Agregar</button></div></div></div>';
 
 			document.getElementById('add-button').addEventListener('click', addProductItems);
-
-			break;
-
-		case 'invoices':
-
-			holder.innerHTML = '';
-
-			document.getElementById('add-button').addEventListener('click', addInvoiceItems);
 
 			break;
 
