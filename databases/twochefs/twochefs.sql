@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-10-2021 a las 00:48:02
+-- Tiempo de generación: 30-11-2021 a las 14:01:14
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.12
 
@@ -44,6 +44,35 @@ INSERT INTO `admins` (`usuario`, `password`, `nombre`, `email`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `id` int(11) NOT NULL,
+  `nombre` text DEFAULT NULL,
+  `correo` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `facturas`
+--
+
+CREATE TABLE `facturas` (
+  `id` int(11) NOT NULL,
+  `nombre` text NOT NULL,
+  `apellido` text NOT NULL,
+  `telefono` text NOT NULL,
+  `direccion` text NOT NULL,
+  `metodo` text NOT NULL,
+  `carrito` text NOT NULL,
+  `total` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `pedidos`
 --
 
@@ -55,7 +84,7 @@ CREATE TABLE `pedidos` (
   `direccion` text NOT NULL,
   `captura` text NOT NULL,
   `referencia` int(11) NOT NULL,
-  `fecha` date NOT NULL,
+  `fecha` datetime NOT NULL,
   `pedido` text DEFAULT NULL,
   `total` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -80,7 +109,6 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`nombre`, `link`, `precio`, `descripcion`, `categoria`, `disponible`) VALUES
-('Hamburguesa 1/4 Libra', 'comida11.jpg', '5', 'Pepinos, Tomate, Lechuga, Doble carne, mostaza', 'comidas', 1),
 ('Papas Fritas', 'comida12.jpg', '2', 'Papas fritas', 'comidas', 1),
 ('Arepa de carne mechada', 'comida10.jpg', '2', 'Queso, aguacate, carne mechada', 'comidas', 1),
 ('Pizza Margarita', 'comida4.jpg', '2', 'Queso, Champinones, Jamon', 'comidas', 1),
@@ -90,7 +118,35 @@ INSERT INTO `productos` (`nombre`, `link`, `precio`, `descripcion`, `categoria`,
 ('Pastel de Chocolate Marmoleado (Racion)', 'postre3.jpg', '2', 'Racion de pastel de chocolate marmoleado con vainilla', 'postres', 1),
 ('Coctel Semaforo', 'bebida1.jpg', '3', 'Bebida alcoholica de tres matices diferentes', 'bebidas', 1),
 ('Coca-Cola (350ml)', 'bebida2.jpg', '2', 'Bebida carbonatada gaseosa a base de cola negra', 'bebidas', 1),
-('Carne asada', 'comida16.jpg', '5', 'Carne asada condimentada', 'comidas', 1);
+('Carne asada', 'comida16.jpg', '5', 'Carne asada condimentada', 'comidas', 1),
+('Algodón de Azúcar', 'Cotton Candy.jpg', '1', 'Una unidad', 'postres', 1),
+('Hamburguesa ', 'Hamburguesa.jpg', '2', 'Carne, lechuga, tomates', 'comidas', 1);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `facturas`
+--
+ALTER TABLE `facturas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
