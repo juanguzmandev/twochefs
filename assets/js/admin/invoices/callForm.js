@@ -80,12 +80,12 @@ const deleteClientItems = section => {
 
 const displayGetInvoiceItems = invoices => {
 
-	var tableOpenTag = '<table class="table"><thead><tr><th scope="col">ID</th><th scope="col">Nombre</th><th scope="col">Apellido</th><th scope="col">Teléfono</th><th scope="col">Dirección</th><th scope="col">Pago</th></tr></thead><tbody>';
+	var tableOpenTag = '<table class="table"><thead><tr><th scope="col">ID</th><th scope="col">Nombre</th><th scope="col">Apellido</th><th scope="col">Teléfono</th><th scope="col">Dirección</th><th scope="col">Pago</th><th scope="col">Total</th></tr></thead><tbody>';
 	var tableCloseTag = '</tbody></table>';
 
 	invoices.forEach(invoice => {
 
-		var invoiceRow = '<tr><th>'+invoice.id+'</th><td>'+invoice.nombre+'</td><td>'+invoice.apellido+'</td><td>'+client.telefono+'</td><td>'+client.direccion+'</td><td>'+client.pago+'</td></tr>';
+		var invoiceRow = '<tr><th>'+invoice.id+'</th><td>'+invoice.nombre+'</td><td>'+invoice.apellido+'</td><td>'+invoice.telefono+'</td><td>'+invoice.direccion+'</td><td>'+invoice.metodo+'</td><td>'+invoice.total+'</td></tr>';
 
 		tableOpenTag = tableOpenTag + invoiceRow;
 	});
@@ -206,10 +206,6 @@ const delItem = (section, holder) => {
 			holder.innerHTML = '<div class="container d-flex justify-content-center flex-column"><div class="row p-4"><div class="col"><label for="nombre_producto">Nombre exacto del producto</label><input type="text" name="nombre_producto" class="form-control" placeholder="Hamburguesa 1/4 Libra"></div></div><div class="row pl-4 pr-4"><div class="col"><button id="del-button" class="btn btn-success">Eliminar</button></div></div></div>';
 
 			document.getElementById('del-button').addEventListener('click', () => {deleteProductItems(section)});
-
-			break;
-
-		case 'invoices':
 
 			break;
 
