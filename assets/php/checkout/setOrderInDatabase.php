@@ -8,6 +8,9 @@
 
 	$pedido = $_POST;
 
+	/*$nombre_captura = $_FILES['captura']['name'] = '';
+	$captura = $_FILES['captura']['tmp_name'] = '';*/
+
 	$nombre_captura = $_FILES['captura']['name'];
 	$captura = $_FILES['captura']['tmp_name'];
 
