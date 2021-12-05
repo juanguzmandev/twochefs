@@ -61,7 +61,6 @@ let loadOnCart = (name, price, category) => {
 	registerOnMemory(name, price, category);
 	setTotal(price);
 
-	//displayDeleteButton();
 	displayModal(name);
 };
 

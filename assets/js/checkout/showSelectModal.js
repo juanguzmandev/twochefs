@@ -2,11 +2,11 @@
 const showSelectModal = (ev) => {
 
 	const payMethod = ev.target.value;
-	//var captureLabel = document.getElementById('captureLabel').innerHTML;
 
 	var payMethodCol = document.getElementById('payMethodCol');
 
 	switch(payMethod) {
+
 		case 'debito':
 
 			payMethodCol.innerHTML = '<span class="text-center text-success">Debe tener su tarjeta de débito a la mano a la hora de recibir su pedido</span>';
@@ -44,6 +44,7 @@ const showSelectModal = (ev) => {
 			break;
 
 		default:
+
 			payMethodCol.innerHTML = '<label for="myfile" class="font-weight-bold" id="captureLabel">Foto del efectivo</label><input type="file" id="myfile" class="form-control" name="captura" required>';
 	}
 	

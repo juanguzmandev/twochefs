@@ -4,8 +4,6 @@
 
 	$dbC = mysqli_connect("127.0.0.1", "root", "", "twochefs");
 
-	#$pedido = json_decode(file_get_contents("php://input"));
-
 	$pedido = $_POST;
 
 	/*$nombre_captura = $_FILES['captura']['name'] = '';
