@@ -36,7 +36,9 @@ const getInvoiceInfo = () => {
 
 	getInvoiceNumber();
 
-	invoiceElement.innerHTML = '<h1 class="fw-bold d-flex justify-content-center">Factura de pedido</h1><span class="fw-bold d-flex justify-content-center p-2">Nombre: '+invoice.name+'</span><span class="d-flex justify-content-center p-2">Apellido: '+invoice.lastName+'</span><span class="d-flex justify-content-center p-2">Número de teléfono: '+invoice.phone+'</span><span class="d-flex justify-content-center p-2">Dirección exacta: '+invoice.address+'</span><span class="d-flex justify-content-center p-2">Método de pago: '+invoice.method+'</span>';
+	var fecha = new Date();
+
+	invoiceElement.innerHTML = '<h1 class="fw-bold d-flex justify-content-center">Factura de pedido</h1><span class="fw-bold d-flex justify-content-center p-2">Nombre: '+invoice.name+'</span><span class="d-flex justify-content-center p-2">Apellido: '+invoice.lastName+'</span><span class="d-flex justify-content-center p-2">Número de teléfono: '+invoice.phone+'</span><span class="d-flex justify-content-center p-2">Dirección exacta: '+invoice.address+'</span><span class="d-flex justify-content-center p-2">Método de pago: '+invoice.method+'</span><span class="d-flex justify-content-center p-2">Fecha de pago: '+fecha+'</span><span class="d-flex justify-content-center p-2 text-success">Total: '+invoice.total + '$' +'</span>';
 
 
 };
