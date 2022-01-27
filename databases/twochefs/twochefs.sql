@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-12-2021 a las 00:29:19
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 8.0.12
+-- Tiempo de generación: 27-01-2022 a las 17:41:13
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -70,6 +70,13 @@ CREATE TABLE `facturas` (
   `total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `facturas`
+--
+
+INSERT INTO `facturas` (`id`, `nombre`, `apellido`, `telefono`, `direccion`, `metodo`, `carrito`, `total`) VALUES
+(0, 'Juan', 'Guzmán', '04126945077', 'Calle Transversal', 'efectivo', '[{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"}]', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -88,6 +95,20 @@ CREATE TABLE `pedidos` (
   `pedido` text DEFAULT NULL,
   `total` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `pedidos`
+--
+
+INSERT INTO `pedidos` (`nombre`, `apellido`, `telefono`, `correo`, `direccion`, `captura`, `referencia`, `fecha`, `pedido`, `total`) VALUES
+('Juan', 'Guzmán', '04126945077', '', 'Calle Transversal', './captures/csgo.png', 0, '2022-01-26 22:13:50', '[{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"}]', '2'),
+('Juan', 'Guzmán', '04126945077', '', 'Calle Transversal', './captures/csgo.png', 0, '2022-01-26 22:31:24', '[{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"},{\"nombre\":\"Arepa de carne mechada\",\"precio\":\"2\",\"categoria\":\"comidas\"}]', '4'),
+('Juan', 'Guzmán', '04126945077', '', 'Calle Transversal', './captures/csgo.png', 0, '2022-01-27 05:34:42', '[{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"}]', '2'),
+('Juan', 'Guzmán', '04126945077', '', 'Calle Transversal', './captures/csgo.png', 0, '2022-01-27 05:53:15', '[{\"nombre\":\"Coctel Semaforo\",\"precio\":\"3\",\"categoria\":\"bebidas\"},{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"}]', '5'),
+('Juan', 'Guzmán', '04126945077', '', 'Calle Transversal', './captures/captures.png', 0, '2022-01-27 06:02:12', '[{\"nombre\":\"Papas Fritas\",\"precio\":\"2\",\"categoria\":\"comidas\"},{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"},{\"nombre\":\"Pizza Margarita\",\"precio\":\"2\",\"categoria\":\"comidas\"}]', '6'),
+('Juan', 'Guzmán', '04126945077', '', 'Calle Transversal', './captures/win 11.png', 0, '2022-01-27 06:03:02', '[{\"nombre\":\"Papas Fritas\",\"precio\":\"2\",\"categoria\":\"comidas\"},{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"},{\"nombre\":\"Pizza Margarita\",\"precio\":\"2\",\"categoria\":\"comidas\"}]', '6'),
+('Juan', 'Guzmán', '04126945077', '', 'Calle Transversal', '-', 0, '2022-01-27 06:18:50', '[{\"nombre\":\"Papas Fritas\",\"precio\":\"2\",\"categoria\":\"comidas\"},{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"},{\"nombre\":\"Pizza Margarita\",\"precio\":\"2\",\"categoria\":\"comidas\"}]', '6'),
+('Juan', 'Guzmán', '04126945077', '', 'Calle Transversal', '-', 0, '2022-01-27 17:34:06', '[{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"}]', '2');
 
 -- --------------------------------------------------------
 
