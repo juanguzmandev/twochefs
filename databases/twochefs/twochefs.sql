@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-01-2022 a las 17:41:13
+-- Tiempo de generación: 01-02-2022 a las 00:20:28
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.1
 
@@ -75,7 +75,9 @@ CREATE TABLE `facturas` (
 --
 
 INSERT INTO `facturas` (`id`, `nombre`, `apellido`, `telefono`, `direccion`, `metodo`, `carrito`, `total`) VALUES
-(0, 'Juan', 'Guzmán', '04126945077', 'Calle Transversal', 'efectivo', '[{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"}]', 2);
+(1, 'Juan', 'Guzmán', '04126945077', 'Calle Transversal', 'efectivo', '[{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"}]', 2),
+(2, 'Juan', 'Guzmán', '04126945077', 'Calle Transversal', 'debito', '[{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"},{\"nombre\":\"Papas Fritas\",\"precio\":\"2\",\"categoria\":\"comidas\"}]', 4),
+(3, 'Juan', 'Guzmán', '04126945077', 'Calle Transversal', 'efectivo', '[{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"}]', 2);
 
 -- --------------------------------------------------------
 
@@ -108,7 +110,13 @@ INSERT INTO `pedidos` (`nombre`, `apellido`, `telefono`, `correo`, `direccion`, 
 ('Juan', 'Guzmán', '04126945077', '', 'Calle Transversal', './captures/captures.png', 0, '2022-01-27 06:02:12', '[{\"nombre\":\"Papas Fritas\",\"precio\":\"2\",\"categoria\":\"comidas\"},{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"},{\"nombre\":\"Pizza Margarita\",\"precio\":\"2\",\"categoria\":\"comidas\"}]', '6'),
 ('Juan', 'Guzmán', '04126945077', '', 'Calle Transversal', './captures/win 11.png', 0, '2022-01-27 06:03:02', '[{\"nombre\":\"Papas Fritas\",\"precio\":\"2\",\"categoria\":\"comidas\"},{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"},{\"nombre\":\"Pizza Margarita\",\"precio\":\"2\",\"categoria\":\"comidas\"}]', '6'),
 ('Juan', 'Guzmán', '04126945077', '', 'Calle Transversal', '-', 0, '2022-01-27 06:18:50', '[{\"nombre\":\"Papas Fritas\",\"precio\":\"2\",\"categoria\":\"comidas\"},{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"},{\"nombre\":\"Pizza Margarita\",\"precio\":\"2\",\"categoria\":\"comidas\"}]', '6'),
-('Juan', 'Guzmán', '04126945077', '', 'Calle Transversal', '-', 0, '2022-01-27 17:34:06', '[{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"}]', '2');
+('Juan', 'Guzmán', '04126945077', '', 'Calle Transversal', '-', 0, '2022-01-27 17:34:06', '[{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"}]', '2'),
+('Juan', 'Guzmán', '04126945077', '', 'Calle Transversal', '-', 0, '2022-01-27 17:48:46', '[{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"},{\"nombre\":\"Papas Fritas\",\"precio\":\"2\",\"categoria\":\"comidas\"},{\"nombre\":\"Hamburguesa \",\"precio\":\"2\",\"categoria\":\"comidas\"}]', '6'),
+('Juan', 'Guzmán', '04126945077', '', 'Calle Transversal', '-', 0, '2022-01-30 00:31:21', '[{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"}]', '2'),
+('Juan', 'Guzmán', '04126945077', '', 'Calle Transversal', '-', 0, '2022-01-30 19:09:28', '[{\"nombre\":\"Coctel Semaforo\",\"precio\":\"3\",\"categoria\":\"bebidas\"},{\"nombre\":\"Papas Fritas\",\"precio\":\"2\",\"categoria\":\"comidas\"}]', '5'),
+('Juan', 'Guzmán', '04126945077', '', 'Calle Transversal', '-', 0, '2022-01-30 19:55:26', '[{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"},{\"nombre\":\"Papas Fritas\",\"precio\":\"2\",\"categoria\":\"comidas\"}]', '4'),
+('Juan', 'Guzmán', '04126945077', '', 'Calle Transversal', './captures/Cotton Candy.jpg', 0, '2022-01-30 19:59:53', '[{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"},{\"nombre\":\"Papas Fritas\",\"precio\":\"2\",\"categoria\":\"comidas\"}]', '4'),
+('Juan', 'Guzmán', '04126945077', '', 'Calle Transversal', '-', 0, '2022-01-31 21:05:57', '[{\"nombre\":\"Coca-Cola (350ml)\",\"precio\":\"2\",\"categoria\":\"bebidas\"}]', '2');
 
 -- --------------------------------------------------------
 
@@ -167,6 +175,12 @@ ALTER TABLE `facturas`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `facturas`
+--
+ALTER TABLE `facturas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
