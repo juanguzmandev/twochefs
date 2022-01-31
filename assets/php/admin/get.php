@@ -19,6 +19,54 @@
 
 	}
 
+	function invoiceFilters() {
+
+		$filter = $_POST['filter'];
+
+		switch ($filter) {
+
+			case 'get':
+
+				return 'SELECT * FROM facturas';
+
+				break;
+
+			case 'debito':
+
+				return 'SELECT * FROM facturas WHERE metodo = "debito";';
+
+				break;
+
+			case 'efectivo':
+
+				return 'SELECT * FROM facturas WHERE metodo = "efectivo";';
+
+				break;
+
+			case 'zelle':
+
+				return 'SELECT * FROM facturas WHERE metodo = "zelle";';
+
+				break;
+
+			case 'pm':
+
+				return 'SELECT * FROM facturas WHERE metodo = "pm";';
+
+				break;
+
+			case 'transferencia':
+
+				return 'SELECT * FROM facturas WHERE metodo = "transferencia";';
+
+				break;
+			
+			default:
+				
+				return 'SELECT * FROM facturas';				
+		}
+	}
+
 	function get($type) {
 
 		switch ($type) {
@@ -37,7 +85,7 @@
 
 			case 'invoices':
 
-				$sql = 'SELECT * FROM facturas';
+				$sql = invoiceFilters();
 				
 				break;
 

@@ -141,11 +141,12 @@ const displayGetProductItems = products => {
 
 // FUNCIONES PARA CADA PROCEDIMIENTO
 
-const getItems = section => {
+const getItems = (section, filter='get') => {
 
 	var modeData = new FormData();
 	modeData.append('type', section);
 	modeData.append('action', 'list');
+	modeData.append('filter', filter);
 
 	switch (section) {
 
@@ -168,6 +169,7 @@ const getItems = section => {
 		case 'invoices':
 
 			axios.post('../../assets/php/admin/get.php', modeData).then(response => {
+				console.log(response.data);
 				displayGetInvoiceItems(response.data);
 			});			
  
