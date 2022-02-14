@@ -4,7 +4,7 @@
 
 	$login = json_decode($loginJson);
 
-	$conn = mysqli_connect('127.0.0.1', 'root', '', 'twochefs');	
+	$conn = mysqli_connect("sdb-r.hosting.stackcp.net", "juanguzman", "Lhp7Py_8D[S£", "twochefs-323036a827");
 
 	$result = mysqli_query($conn, 'SELECT * FROM admins WHERE usuario = "'.$login->user.'" AND password ="'.$login->pw.'"');
 

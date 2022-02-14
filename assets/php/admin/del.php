@@ -1,6 +1,6 @@
 <?php 
 
-	$db = mysqli_connect('127.0.0.1', 'root', '', 'twochefs');
+	$db = mysqli_connect("sdb-r.hosting.stackcp.net", "juanguzman", "Lhp7Py_8D[S£", "twochefs-323036a827");
 
 	$seccion = $_POST['seccion'];
 

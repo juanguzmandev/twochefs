@@ -19,7 +19,7 @@ let finalizeOrder = () => {
 		localStorage.setItem('total', parseInt(cartTotal));
 
 
-		location.href='/twochefs/checkout';
+		location.href='../checkout';
 
 	} else {
 

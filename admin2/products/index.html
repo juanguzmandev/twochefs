@@ -3,16 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Clientes - TwoChefs</title>
+	<title>Productos - TwoChefs</title>
 	<!-- JQuery -->
-	<script src="../../assets/js/jquery-3.5.1.js"></script>
+	<script src="../../assets/js/jquery.min.js"></script>
 	<!-- FontAwesome -->
-	<script src="../../assets/js/7b31fa78fb.js"></script>
+	<script src="../../assets/js/7b31fa78fb.js" crossorigin="anonymous"></script>
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
 	<!-- Bootstrap JS -->
 	<script src="../../assets/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="../../assets/css/admin/products/index.css">
+	<link rel="icon" href="../../assets/images/ico/logo.ico">
 </head>
 <body>
 	<header class="d-flex flex-row shadow-sm">
@@ -26,14 +27,12 @@
 		</div>
 	</header>
 	<section class="container d-flex justify-content-center">
-		<span class="option justify-content-center p-4 text-secondary" onclick="callForm('clients', 'add')">Agregar</span>
-		<span class="option justify-content-center p-4 text-secondary" onclick="callForm('clients', 'list')">Listar</span>
-		<span class="option justify-content-center p-4 text-secondary" onclick="callForm('clients', 'del')">Eliminar</span>
+		<span class="option justify-content-center p-4 text-secondary" onclick="callForm('products', 'add')">Agregar</span>
+		<span class="option justify-content-center p-4 text-secondary" onclick="callForm('products', 'list')">Listar</span>
+		<span class="option justify-content-center p-4 text-secondary" onclick="callForm('products', 'del')">Eliminar</span>
 	</section>
-	<section class="container d-flex justify-content-center">
-		<article class="container client clients-holder">
-			
-		</article>
+	<section class="container d-flex justify-content-center products-holder">
+		
 	</section>
 	<script src="../../assets/js/axios.min.js"></script>
 	<script src="../../assets/js/admin/invoices/callForm.js"></script>

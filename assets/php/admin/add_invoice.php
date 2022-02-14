@@ -8,7 +8,7 @@
 	$factura_carrito = $_POST['carrito'];
 	$factura_total = $_POST['total'];
 
-	$db = mysqli_connect('127.0.0.1', 'root', '', 'twochefs');
+	$db = mysqli_connect("sdb-r.hosting.stackcp.net", "juanguzman", "Lhp7Py_8D[S£", "twochefs-323036a827");
 
 	$add_invoice_sql = 'INSERT INTO facturas(nombre, apellido, telefono, direccion, metodo, carrito, total) VALUES("'.$factura_nombre.'", "'.$factura_apellido.'", "'.$factura_telefono.'", "'.$factura_direccion.'", "'.$factura_metodo.'", \''.$factura_carrito.'\', '.$factura_total.');';
 

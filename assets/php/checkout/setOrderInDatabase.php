@@ -2,7 +2,7 @@
 
 	setlocale(LC_ALL,"es_VE");
 
-	$dbC = mysqli_connect("127.0.0.1", "root", "", "twochefs");
+	$dbC = mysqli_connect("sdb-r.hosting.stackcp.net", "juanguzman", "Lhp7Py_8D[S£", "twochefs-323036a827");
 
 	$pedido = $_POST;
 
